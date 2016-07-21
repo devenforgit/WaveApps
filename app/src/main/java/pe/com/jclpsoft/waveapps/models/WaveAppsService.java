@@ -1,5 +1,6 @@
 package pe.com.jclpsoft.waveapps.models;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.orm.SugarContext;
 import com.orm.SugarDb;
@@ -23,7 +24,6 @@ public class WaveAppsService{
     public long getTotalCategories() {
         return Category.count(Category.class);
     }
-
 
     /*FOR TYPES*/
     public boolean addNewType(Type type) {
@@ -86,7 +86,6 @@ public class WaveAppsService{
         }
     }
 
-
     private SQLiteDatabase getDatabase() {
         try {
             Field f = SugarContext.getSugarContext().getClass().getDeclaredField("sugarDb");
@@ -98,5 +97,41 @@ public class WaveAppsService{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public float getAvgKilometersPerGallon() {
+        try {
+            Cursor cursor = getDatabase().rawQuery(
+                    "SELECT AVG(last_odometer/gallons) AS result FROM entry", null);
+            return (cursor.moveToFirst() ?
+                    cursor.getInt(cursor.getColumnIndex("result")) :
+                    0);
+        }
+        catch(NullPointerException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public float incomeThisMonth(){
+        float incomeThisMonth=0;
+        List<Transact> transactListIncomes=income.getTransactions();
+        for (Transact t:transactListIncomes){
+            incomeThisMonth+=t.amount;
+        }
+        return incomeThisMonth;
+    }
+
+    public float expenseThisMonth(){
+        float expenseThisMonth=0;
+        List<Transact> transactListExpenses=expense.getTransactions();
+        for (Transact t:transactListExpenses){
+            expenseThisMonth+=t.amount;
+        }
+        return expenseThisMonth;
+    }
+
+    public float netIncomeThisMonth(){
+        return incomeThisMonth()-expenseThisMonth();
     }
 }

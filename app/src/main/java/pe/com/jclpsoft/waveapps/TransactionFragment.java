@@ -37,11 +37,11 @@ import pe.com.jclpsoft.waveapps.models.WaveAppsService;
 
 public class TransactionFragment extends Fragment {
 
-    public List<Transact> transactList;
+    private List<Transact> transactList;
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-    WaveAppsService service;
+    private WaveAppsService service;
     private Type type;
     private List<Category> categoryList;
     private List<Type> typeList;
@@ -81,7 +81,7 @@ public class TransactionFragment extends Fragment {
         return view;
     }
 
-    public void loadRecycler(){
+    private void loadRecycler(){
         transactList =service.listAllTransactions();
         if (view instanceof RecyclerView) {
             Context context = view.getContext();

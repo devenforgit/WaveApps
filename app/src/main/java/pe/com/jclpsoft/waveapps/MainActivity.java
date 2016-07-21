@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_dashboard:
                 fab.setVisibility(View.GONE);
+                commitFragment("Dashboard",2);
                 break;
             case R.id.nav_transactions:
                 fab.setVisibility(View.VISIBLE);

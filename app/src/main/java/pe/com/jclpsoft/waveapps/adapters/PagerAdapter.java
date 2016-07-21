@@ -8,6 +8,7 @@ import android.util.SparseArray;
 import android.view.ViewGroup;
 import java.lang.ref.WeakReference;
 
+import pe.com.jclpsoft.waveapps.DashboardFragment;
 import pe.com.jclpsoft.waveapps.MainFragment;
 import pe.com.jclpsoft.waveapps.TransactionFragment;
 
@@ -31,7 +32,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                     case 1:
                         return new MainFragment();
                     case 2:
-                        return null;
+                        return new DashboardFragment();
                     case 3:
                         return new TransactionFragment();
                     case 4:

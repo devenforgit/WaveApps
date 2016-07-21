@@ -20,5 +20,6 @@ public class Transact extends SugarRecord {
         this.amount=amount;
         this.url=url;
         this.category=category;
+        this.type=type;
     }
 }
