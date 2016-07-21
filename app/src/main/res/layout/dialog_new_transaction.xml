@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:id="@+id/dialog_new_transaction">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:padding="5dp"
+        android:id="@+id/typeLinearLayout">
+
+        <TextView
+            android:text="@string/type_text_view"
+            android:layout_width="0dp"
+            android:textAlignment="textEnd"
+            android:layout_height="wrap_content"
+            android:id="@+id/typeTextView"
+            android:layout_weight="1" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:layout_width="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/typeSpinner"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:padding="5dp"
+        android:id="@+id/categoryLinearLayout">
+
+        <TextView
+            android:text="@string/category_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/categoryTextView"
+            android:textAlignment="textEnd"
+            android:layout_weight="1" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:id="@+id/categorySpinner"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:padding="5dp"
+        android:id="@+id/descriptionLinearLayout">
+
+        <TextView
+            android:text="@string/description_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:id="@+id/descriptionTextView"
+            android:layout_weight="1" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginStart="10dp"
+            android:id="@+id/descriptionEditText"
+            android:inputType="text"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:padding="5dp"
+        android:id="@+id/amountLinearLayout">
+
+        <TextView
+            android:text="@string/amount_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:id="@+id/amountTextView"
+            android:layout_weight="1" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:layout_marginStart="10dp"
+            android:id="@+id/amountEditText"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_menu_camera"
+        android:id="@+id/photoImageView"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:gravity="center"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:textColor="@color/colorSecondaryText"
+        android:textAlignment="textEnd"
+        android:textStyle="bold"
+        android:id="@+id/cancelButton"
+        android:text="Cancel"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_weight="2"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:textAlignment="textEnd"
+        android:text="ADD"
+        android:id="@+id/addButton" />
+
+</LinearLayout>
+
+</LinearLayout>

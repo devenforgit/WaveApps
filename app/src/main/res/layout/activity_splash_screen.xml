@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.com.jclpsoft.waveapps.SplashScreenActivity">
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/logoImageView"
+        app:srcCompat="@drawable/wave_logo"
+        android:contentDescription="@string/description_image"
+        android:scaleType="fitCenter"
+        android:padding="@dimen/fab_margin"
+        android:background="@android:color/white" />
+
+</FrameLayout>
