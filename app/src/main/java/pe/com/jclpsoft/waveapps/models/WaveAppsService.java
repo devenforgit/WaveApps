@@ -48,7 +48,7 @@ public class WaveAppsService{
         return Transact.listAll(Transact.class);
     }
 
-    public long getTotalTranactions() {
+    public long getTotalTransactions() {
         return Transact.count(Transact.class);
     }
 
@@ -99,12 +99,12 @@ public class WaveAppsService{
         return null;
     }
 
-    public float getAvgKilometersPerGallon() {
+    public float incomeThisMonth() {
         try {
             Cursor cursor = getDatabase().rawQuery(
-                    "SELECT AVG(last_odometer/gallons) AS result FROM entry", null);
+                    "SELECT SUM(AMOUNT) AS result_amount FROM TRANSACT WHERE TYPE=1", null);
             return (cursor.moveToFirst() ?
-                    cursor.getInt(cursor.getColumnIndex("result")) :
+                    cursor.getFloat(cursor.getColumnIndex("result_amount")) :
                     0);
         }
         catch(NullPointerException e) {
@@ -113,22 +113,18 @@ public class WaveAppsService{
         return 0;
     }
 
-    public float incomeThisMonth(){
-        float incomeThisMonth=0;
-        List<Transact> transactListIncomes=income.getTransactions();
-        for (Transact t:transactListIncomes){
-            incomeThisMonth+=t.amount;
+    public float expenseThisMonth() {
+        try {
+            Cursor cursor = getDatabase().rawQuery(
+                    "SELECT SUM(AMOUNT) AS result_expense FROM TRANSACT WHERE TYPE=2", null);
+            return (cursor.moveToFirst() ?
+                    cursor.getFloat(cursor.getColumnIndex("result_expense")) :
+                    0);
         }
-        return incomeThisMonth;
-    }
-
-    public float expenseThisMonth(){
-        float expenseThisMonth=0;
-        List<Transact> transactListExpenses=expense.getTransactions();
-        for (Transact t:transactListExpenses){
-            expenseThisMonth+=t.amount;
+        catch(NullPointerException e) {
+            e.printStackTrace();
         }
-        return expenseThisMonth;
+        return 0;
     }
 
     public float netIncomeThisMonth(){
