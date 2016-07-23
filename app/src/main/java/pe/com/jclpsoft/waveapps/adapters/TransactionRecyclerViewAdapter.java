@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
+import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,8 +16,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
@@ -52,8 +58,8 @@ public class TransactionRecyclerViewAdapter extends RecyclerView.Adapter<Transac
         holder.mDescriptionTextView.setText(mTransacts.get(position).description);
         holder.mDateTextView.setText(mTransacts.get(position).date);
 
-        Locale locale = new Locale("es", "PE");
-        NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
+        final Locale locale = new Locale("es", "PE");
+        final NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
 
         holder.mAmountTextView.setText(nf.format(mTransacts.get(position).amount));
         holder.mAmountTextView.setTextColor(activity.getResources().getColor((String.valueOf(mTransacts.get(position).type.getId()).equals("1")) ? android.R.color.holo_green_dark : android.R.color.holo_red_dark));
@@ -73,7 +79,24 @@ public class TransactionRecyclerViewAdapter extends RecyclerView.Adapter<Transac
                         .positiveText("OK")
                         .positiveColorRes(R.color.colorAccent)
                         .titleColorRes(R.color.colorPrimaryDark)
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                dialog.dismiss();
+                            }
+                        })
                         .show();
+                View mDialogView=materialDialog.getCustomView();
+                TextView mDescriptionTextView= (TextView)mDialogView.findViewById(R.id.descriptionTextView);
+                TextView mTypeTextView=(TextView)mDialogView.findViewById(R.id.typeTextView);
+                TextView mCategoryTextView=(TextView)mDialogView.findViewById(R.id.categoryTextView);
+                TextView mAmountTextView=(TextView)mDialogView.findViewById(R.id.amountTextView);
+                ImageView mPhotoImageView=(ImageView)mDialogView.findViewById(R.id.photoImageView);
+                mDescriptionTextView.setText(mTransacts.get(position).description);
+                mTypeTextView.setText((waveAppsService.findTypeById(Integer.parseInt(String.valueOf(mTransacts.get(position).getId())))).type);
+                mCategoryTextView.setText((waveAppsService.findCategoryById(Integer.parseInt(String.valueOf(mTransacts.get(position).getId())))).category);
+                mAmountTextView.setText(nf.format(mTransacts.get(position).amount));
+                Picasso.with(activity).load("file:"+Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)+ File.separator+mTransacts.get(position).url+".jpg").resize(150, 150).centerCrop().into(mPhotoImageView);
             }
         });
 

@@ -139,8 +139,9 @@ public class TransactionFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
+                ((MainActivity)getActivity()).lastOutputMediaFileUri=fileUri;
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-                getActivity().startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+                ((MainActivity)getActivity()).startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
                 lastOutputMediaFileUri = fileUri;
             }
         });
