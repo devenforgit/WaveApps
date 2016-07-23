@@ -91,7 +91,7 @@ public class TransactionFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            transactionRecyclerViewAdapter=new TransactionRecyclerViewAdapter(transactList, mListener);
+            transactionRecyclerViewAdapter=new TransactionRecyclerViewAdapter(getActivity(),transactList, mListener);
             recyclerView.setAdapter(transactionRecyclerViewAdapter);
         }
     }
@@ -171,13 +171,13 @@ public class TransactionFragment extends Fragment {
                 Calendar calendar = GregorianCalendar.getInstance();
                 Date dateTime = calendar.getTime();
                 System.out.println(dateTime);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE d MMMM yyyy HH:mm:ss");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 String date=simpleDateFormat.format(dateTime);
                 String description=mDescriptionEditText.getText().toString();
                 float amount=Float.parseFloat(mAmountEditText.getText().toString());
                 Category category=(Category)mCategorySpinner.getSelectedItem();
                 Type type=(Type)mTypeSpinner.getSelectedItem();
-                return new Transact(date,description,amount,url,category,type);
+                return new Transact(date,description,amount,url,category,type,1,1);
             }
 
             @Override
