@@ -2,14 +2,13 @@ package pe.com.jclpsoft.waveapps.models;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import com.orm.SugarContext;
 import com.orm.SugarDb;
 import com.orm.query.Condition;
 import com.orm.query.Select;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -158,6 +157,8 @@ public class WaveAppsService{
             addNewCategory(new Category("Vehicle – Repairs & Maintenance", expense));
         }
     }
+
+
 
     private SQLiteDatabase getDatabase() {
         try {
