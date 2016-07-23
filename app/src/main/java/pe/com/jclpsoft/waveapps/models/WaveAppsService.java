@@ -116,6 +116,10 @@ public class WaveAppsService{
         transact.update();
     }
 
+    public Transact obtainTransactById(int id){
+        return Transact.findById(Transact.class,id);
+    }
+
     public void updateTransaction(Transact transact){
         transact.update();
     }
@@ -175,7 +179,7 @@ public class WaveAppsService{
     public float incomeThisMonth() {
         try {
             Cursor cursor = getDatabase().rawQuery(
-                    "SELECT SUM(AMOUNT) AS result_amount FROM TRANSACT WHERE TYPE=1", null);
+                    "SELECT SUM(AMOUNT) AS result_amount FROM TRANSACT WHERE TYPE=1 AND ENABLE=1", null);
             return (cursor.moveToFirst() ?
                     cursor.getFloat(cursor.getColumnIndex("result_amount")) :
                     0);
@@ -189,7 +193,7 @@ public class WaveAppsService{
     public float expenseThisMonth() {
         try {
             Cursor cursor = getDatabase().rawQuery(
-                    "SELECT SUM(AMOUNT) AS result_expense FROM TRANSACT WHERE TYPE=2", null);
+                    "SELECT SUM(AMOUNT) AS result_expense FROM TRANSACT WHERE TYPE=2 AND ENABLE=1", null);
             return (cursor.moveToFirst() ?
                     cursor.getFloat(cursor.getColumnIndex("result_expense")) :
                     0);

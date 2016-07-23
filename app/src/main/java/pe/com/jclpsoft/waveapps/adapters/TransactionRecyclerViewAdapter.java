@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
 
+import pe.com.jclpsoft.waveapps.DetailTransacActivity;
 import pe.com.jclpsoft.waveapps.R;
 import pe.com.jclpsoft.waveapps.TransactionFragment;
 import pe.com.jclpsoft.waveapps.WaveAppsApplication;
@@ -73,7 +74,7 @@ public class TransactionRecyclerViewAdapter extends RecyclerView.Adapter<Transac
         holder.mViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MaterialDialog materialDialog=new MaterialDialog.Builder(activity)
+                /*MaterialDialog materialDialog=new MaterialDialog.Builder(activity)
                         .title("Transact # "+String.valueOf(mTransacts.get(position).getId()))
                         .customView(R.layout.custom_view, true)
                         .positiveText("OK")
@@ -97,6 +98,10 @@ public class TransactionRecyclerViewAdapter extends RecyclerView.Adapter<Transac
                 mCategoryTextView.setText((waveAppsService.findCategoryById(Integer.parseInt(String.valueOf(mTransacts.get(position).getId())))).category);
                 mAmountTextView.setText(nf.format(mTransacts.get(position).amount));
                 Picasso.with(activity).load("file:"+Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)+ File.separator+mTransacts.get(position).url+".jpg").resize(150, 150).centerCrop().into(mPhotoImageView);
+            */
+                Intent intent = new Intent(activity, DetailTransacActivity.class);
+                intent.putExtra("id", Integer.parseInt(String.valueOf(mTransacts.get(position).getId())));
+                activity.startActivity(intent);
             }
         });
 
