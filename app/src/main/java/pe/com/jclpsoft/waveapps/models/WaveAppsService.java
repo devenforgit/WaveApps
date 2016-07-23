@@ -113,7 +113,7 @@ public class WaveAppsService{
     public void deleteTransaction(int id){
         Transact transact=Transact.findById(Transact.class,id);
         transact.enable=0;
-        transact.update();
+        transact.save();
     }
 
     public Transact obtainTransactById(int id){
@@ -121,7 +121,7 @@ public class WaveAppsService{
     }
 
     public void updateTransaction(Transact transact){
-        transact.update();
+        transact.save();
     }
 
 

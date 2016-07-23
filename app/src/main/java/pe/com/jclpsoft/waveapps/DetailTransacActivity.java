@@ -53,7 +53,7 @@ public class DetailTransacActivity extends AppCompatActivity {
         final Locale locale = new Locale("es", "PE");
         final NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
         mDescriptionTextView.setText(mTransact.description);
-        mTypeTextView.setText((waveAppsService.findTypeById(Integer.parseInt(String.valueOf(mTransact.getId())))).type);
+        mTypeTextView.setText((waveAppsService.findTypeById(Integer.parseInt(String.valueOf(mTransact.type.getId())))).type);
         mCategoryTextView.setText((waveAppsService.findCategoryById(Integer.parseInt(String.valueOf(mTransact.getId())))).category);
         mAmountTextView.setText(nf.format(mTransact.amount));
         Picasso.with(this).load("file:"+ Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)+ File.separator+mTransact.url+".jpg").into(mPhotoImageView);
