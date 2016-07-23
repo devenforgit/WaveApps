@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Handler mHandler=new Handler();
     private FloatingActionButton fab;
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-    private Uri lastOutputMediaFileUri = null;
+    public Uri lastOutputMediaFileUri = null;
     private PagerAdapter pagerAdapter;
     private ViewPager mViewPager;
     private TabLayout tabLayout;
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_settings:
+            case R.id.action_sync:
                 break;
         }
         return super.onOptionsItemSelected(item);
