@@ -1,12 +1,7 @@
 package pe.com.jclpsoft.waveapps.adapters;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Environment;
-import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,19 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.squareup.picasso.Picasso;
-
-import java.io.File;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
-import java.util.StringTokenizer;
 
-import pe.com.jclpsoft.waveapps.DetailTransacActivity;
+import pe.com.jclpsoft.waveapps.activities.DetailTransacActivity;
 import pe.com.jclpsoft.waveapps.R;
-import pe.com.jclpsoft.waveapps.TransactionFragment;
+import pe.com.jclpsoft.waveapps.fragments.TransactionFragment;
 import pe.com.jclpsoft.waveapps.WaveAppsApplication;
 import pe.com.jclpsoft.waveapps.models.Transact;
 import pe.com.jclpsoft.waveapps.models.WaveAppsService;

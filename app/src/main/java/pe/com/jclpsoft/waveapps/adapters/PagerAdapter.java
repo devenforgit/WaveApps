@@ -8,9 +8,9 @@ import android.util.SparseArray;
 import android.view.ViewGroup;
 import java.lang.ref.WeakReference;
 
-import pe.com.jclpsoft.waveapps.DashboardFragment;
-import pe.com.jclpsoft.waveapps.MainFragment;
-import pe.com.jclpsoft.waveapps.TransactionFragment;
+import pe.com.jclpsoft.waveapps.fragments.DashboardFragment;
+import pe.com.jclpsoft.waveapps.fragments.MainFragment;
+import pe.com.jclpsoft.waveapps.fragments.TransactionFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     private final SparseArray<WeakReference<Fragment>> instantiatedFragments = new SparseArray<>();

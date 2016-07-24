@@ -73,6 +73,25 @@ public class WaveAppsService{
         return type;
     }
 
+    public int ifExistInDB(int id){
+        int result=0;
+        try {
+            Cursor cursor = getDatabase().rawQuery("SELECT COUNT(*) as RES FROM TRANSACT WHERE ID="+id, null);
+            if(cursor.moveToFirst()){
+                result = cursor.getInt(cursor.getColumnIndex("RES"));
+            }
+        }
+        catch(NullPointerException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+    public Transact ifExistId(int id){
+        Transact tr = Transact.findById(Transact.class,id);
+        return tr;
+    }
 
     /*FOR TRANSACTIONS*/
     public boolean addNewTransaction(Transact transact) {

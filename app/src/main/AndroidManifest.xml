@@ -30,7 +30,7 @@
             android:value="pe.com.jclpsoft.waveapps.models" />
 
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".activities.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">
@@ -42,12 +42,12 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".DetailTransacActivity"
+        <activity android:name=".activities.DetailTransacActivity"
             android:theme="@style/AppTheme.NoactionBar2"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
